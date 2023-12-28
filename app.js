@@ -1,10 +1,7 @@
 const express = require("express");
 const pgp = require("pg-promise")();
-// const { Pool } = require("pg");
 const { LargeObjectManager } = require("pg-large-object");
 const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
@@ -17,7 +14,6 @@ const config = {
   database: DB_NAME,
   port: Number(DB_PORT),
 };
-// const client = new Client(config);
 const db = pgp(config);
 
 const upload = multer({ storage: multer.memoryStorage() });
